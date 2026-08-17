@@ -1,0 +1,17 @@
+{
+  "name": "肖总的投研工作台",
+  "short_name": "肖总投研台",
+  "description": "肖总的投研工作台 · 实时行情 / 估值 / 资讯一体",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#b91c1c",
+  "theme_color": "#b91c1c",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

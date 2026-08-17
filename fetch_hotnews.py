@@ -282,8 +282,7 @@ def main():
     html2 = re.sub(r"var LATEST_DATE='[^']*'", "var LATEST_DATE='%s'" % date_str, html2, count=1)
     html2 = re.sub(r"var LATEST_WEEKDAY='[^']*'", "var LATEST_WEEKDAY='%s'" % wk, html2, count=1)
     html2 = re.sub(r"var FETCH_TIME='[^']*'", "var FETCH_TIME='%s'" % ts, html2, count=1)
-    html2 = re.sub(r'(<span class="card-title-time" id="topic-fetch-time">[\s\S]*?</span>)',
-                   '<span class="card-title-time" id="topic-fetch-time">最后获取资讯时间<br>%s</span>' % ts, html2, count=1)
+    # [v19] 二级页"盘点今日热点"模块表头时间戳已移除（按用户要求），不再替换；右上方 report-header-sub 由前端 JS 按 FETCH_TIME 动态渲染
     # 历史日报：写入逐日归档后的 sampleHistoryDays（若本次跨天滚动了）
     if new_history_json is not None:
         html2, nh = re.subn(r"var sampleHistoryDays=\[[\s\S]*?\n?\];", "var sampleHistoryDays=" + new_history_json + ";\n", html2, count=1)

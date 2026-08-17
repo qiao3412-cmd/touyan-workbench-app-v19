@@ -697,7 +697,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
         盘点今日热点
       </div>
-      <div class="page-header-sub" id="report-header-sub">每日 08:30 自动推送</div>
+      <div class="page-header-sub" id="report-header-sub">最后获取资讯时间 2026-08-17 20:20:06</div>
     </div>
 
     <div class="card today-section" id="today-section"></div>
@@ -708,7 +708,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
           盘点今日热点
         </div>
-        <span class="card-title-time" id="topic-fetch-time">最后获取资讯时间<br>2026-08-17 20:20:06</span>
       </div>
       <div id="latest-report-content"></div>
     </div>
@@ -1954,6 +1953,7 @@ function resetAppData(){
 
 function init(){
   resetAppData();
+  try{ document.getElementById('report-header-sub').textContent='最后获取资讯时间 '+FETCH_TIME; }catch(_){}
   // [v4修复] 全局异常兜底：任何未捕获异常只记录，绝不白屏
   window.onerror=function(m,s,l,c,e){ try{console.error('[全局兜底]未捕获异常(已防白屏):',m,e);}catch(_){} return true; };
   var reports=loadData(REPORTS_KEY,sampleReports);
@@ -2414,7 +2414,6 @@ function renderToday(reports){
     '<span style="display:flex;align-items:center;gap:6px">'+
     '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01M5 19h14a2 2 0 001.84-2.75L13.74 4a2 2 0 00-3.48 0L3.16 16.25A2 2 0 005 19z"/></svg>'+
     '今天要处理</span>'+
-    '<span style="font-size:.7rem;line-height:1.35;text-align:right;color:var(--muted);font-weight:600;white-space:nowrap">最后获取资讯时间<br>'+FETCH_TIME+'</span>'+
     '</div>';
   var latest=reports[0];
   if(latest){
